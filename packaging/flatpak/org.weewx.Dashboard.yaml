@@ -1,0 +1,31 @@
+app-id: io.github.weewxdashboard
+runtime: org.freedesktop.Platform
+runtime-version: "24.08"
+sdk: org.freedesktop.Sdk
+command: weewx-dashboard
+finish-args:
+  - --share=network
+  - --socket=x11
+  - --socket=wayland
+  - --device=dri
+  - --filesystem=xdg-config/weewx-dashboard:create
+  - --filesystem=/etc/weewx:ro
+  - --filesystem=/var/lib/weewx:ro
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.freedesktop.Flatpak
+
+modules:
+  - packaging/flatpak/python3-deps.json
+  - name: weewx-dashboard
+    buildsystem: simple
+    build-commands:
+      - install -d /app/share/applications
+      - install -d /app/share/metainfo
+      - install -d /app/share/icons/hicolor/scalable/apps
+      - python3 -m pip install --no-build-isolation --no-deps --prefix=/app .
+      - install -m644 packaging/flatpak/org.weewx.Dashboard.desktop /app/share/applications/io.github.weewxdashboard.desktop
+      - install -m644 packaging/flatpak/org.weewx.Dashboard.metainfo.xml /app/share/metainfo/io.github.weewxdashboard.metainfo.xml
+      - install -m644 packaging/flatpak/org.weewx.Dashboard.svg /app/share/icons/hicolor/scalable/apps/io.github.weewxdashboard.svg
+    sources:
+      - type: dir
+        path: .

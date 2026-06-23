@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=WeeWX Dashboard
+Comment=Monitor WeeWX and Weather Underground publish status
+Exec=weewx-dashboard
+Icon=io.github.weewxdashboard
+Terminal=false
+Type=Application
+Categories=Utility;System;Monitor;
+Keywords=weather;weewx;wunderground;monitor;
+StartupNotify=true

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=WeeWX Dashboard
+Comment=Monitor WeeWX and Weather Underground publish status
+Exec=weewx-dashboard
+Icon=utilities-system-monitor
+Terminal=false
+Categories=Utility;System;Monitor;
+Keywords=weather;weewx;wunderground;monitor;
+StartupNotify=true

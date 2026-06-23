@@ -1,0 +1,1 @@
+"""WeeWX Dashboard tabs package."""

@@ -59,29 +59,6 @@ Outputs:
 - app bundle: `dist\weewx-dashboard\`
 - installer: `dist\installer\WeeWXDashboardSetup.exe`
 
-## Automated GitHub Releases
-
-Workflow: [.github/workflows/release.yml](.github/workflows/release.yml)
-
-When you push a tag like `v1.0.1`, GitHub Actions will:
-
-1. Build Linux artifact (`.tar.gz`)
-2. Build Windows app + Inno Setup installer (`.exe`)
-3. Publish/update GitHub Release and attach artifacts
-
-Release command example:
-
-```bash
-git tag -a v1.0.1 -m "v1.0.1"
-git push origin v1.0.1
-```
-
-## Flathub Prep Notes
-
-- App ID currently set to `io.github.weewxdashboard`
-- Before Flathub submission, point manifest source to your GitHub release archive + `sha256`
-- Regenerate `python3-deps.json` whenever Python dependencies change
-
 ## Project Layout
 
 ```text
